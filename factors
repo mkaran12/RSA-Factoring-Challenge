@@ -1,28 +1,7 @@
-#!/usr/bin/python3
-
-import sys
-
-def factorize(num):
-    factors = []
-    divisor = 2
-    while num > 1:
-        if num % divisor == 0:
-            factors.append(divisor)
-            num //= divisor
-        else:
-            divisor += 1
-    return factors
-
-def main(file_name):
-    with open(file_name, 'r') as file:
-        for line in file:
-            num = int(line.strip())
-            factors = factorize(num)
-            print(f"{num}={'*'.join(map(str, factors))}")
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python factors.py <file>")
-        sys.exit(1)
-    file_name = sys.argv[1]
-    main(file_name)
+#/usr/bin/python3
+FILE=$1
+while read NUMBERS;
+do
+      factors=($(factor $NUMBER))
+      echo "$NUMBERS=$(($NUMBERS/${factord[1]}))*${factors[1]}"
+done < $FILE
